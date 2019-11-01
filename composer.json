@@ -1,0 +1,20 @@
+{
+	"name": "cncoders/thinkphp-helper",
+	"description": "a simple helper library with thinkphp6",
+	"homepage": "https://github.com/cncoders/thinkphp-helper.git",
+	"license": "MIT",
+	"keywords": ["library", "thinkphp", "tp", "tp6", "php"],
+	"authors": [
+		{
+			"name": "fuwei",
+			"email": "542928955@qq.com"
+		}
+	],
+	"require": {
+		"php": ">=5.6"
+	},
+	"type": "library",
+	"autoload": {
+		"psr-4": {"cncoders\\helper\\": "src"}
+	}
+}
