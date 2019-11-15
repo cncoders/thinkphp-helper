@@ -133,4 +133,37 @@ class Helper
         if ($asc >= -11055 && $asc <= -10247) return 'Z';
         return null;
     }
+
+    /**
+     * 递归移动目录所有内容到指定目录
+     * @param $disDir     旧目录
+     * @param $targetDir   目标目录
+     * @return bool
+     * @throws \Exception
+     */
+    public static function copyDir($disDir, $targetDir)
+    {
+        if ( !is_dir($disDir) ) {
+            throw new \Exception('源目录不存在无法移动!');
+        }
+
+        if ( !is_dir($targetDir) ) {
+            mkdir($targetDir , 0770, true);
+        }
+
+        $dir = opendir($disDir);
+        while ( false !== ($file = readdir($dir)) ) {
+            if($file != "." && $file !="..") {
+                $disFile = $disDir . DIRECTORY_SEPARATOR . $file;
+                if ( is_dir($disFile) ) {
+                    self::copyDir( $disFile, $targetDir . DIRECTORY_SEPARATOR . $file);
+                    continue;
+                }else {
+                    copy($disFile, $targetDir . DIRECTORY_SEPARATOR . $file);
+                }
+            }
+        }
+        closedir($dir);
+        return true;
+    }
 }
