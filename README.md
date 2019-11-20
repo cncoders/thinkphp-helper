@@ -36,5 +36,25 @@
 \cncoders\helper\Arrays::sumArrayWithPrice();
 
 //用于在大数组中替代in_array的方法 据说性能比in_array没有亲自对比性能 可以根据自己需求来定
-\cncoders\helper\Arrays::inArray()
+\cncoders\helper\Arrays::inArray();
+
+#以下功能1.0.2新增
+
+//数组冒泡排序
+\cncoders\helper\Arrays::bubbSort($array, $sort = 'desc');
+
+//快速排序
+\cncoders\helper\Arrays::quickSort($array, $sort = 'desc');
+
+//二分查找
+\cncoders\helper\Arrays::twoPointSearch($toSearch, $array);
+
+//获取字符串拼音首字母
+\cncoders\helper\Helper::firstCharter($str) :string
+
+#以下功能1.0.3新增
+
+//复制指定目录下所有文件目录到指定目录
+\cncoders\helper\Helper::copyDir($disDir, $targetDir):bool
+
 ```
