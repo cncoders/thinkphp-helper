@@ -57,4 +57,7 @@
 //复制指定目录下所有文件目录到指定目录
 \cncoders\helper\Helper::copyDir($disDir, $targetDir):bool
 
+//比较两个版本号的大小
+\cncoders\helper\Helper::compareVersion('1.0.1', '1.0.2):int
+
 ```
