@@ -166,4 +166,24 @@ class Helper
         closedir($dir);
         return true;
     }
+
+    /**
+     * 比较两个版本号的大小
+     * @param $version1
+     * @param $version2
+     * @return int
+     */
+    public static function compareVersion($version1, $version2)
+    {
+        $add = function($str, $length){return str_pad($str,$length,"0");};
+        $reg = function($str){return preg_replace('/[^0-9]/','',$str);};
+        $length = strlen($reg($version1))>strlen($reg($version2)) ? strlen($reg($version1)): strlen($reg($version2));
+        $v1 = $add($reg($version1),$length);
+        $v2 = $add($reg($version2),$length);
+        if($v1 == $v2) {
+            return 0;
+        }else{
+            return $v1>$v2?1:-1;
+        }
+    }
 }
