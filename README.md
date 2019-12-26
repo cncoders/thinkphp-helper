@@ -60,4 +60,7 @@
 //比较两个版本号的大小
 \cncoders\helper\Helper::compareVersion('1.0.1', '1.0.2):int
 
+//无限级分类树
+\cncoders\helper\Arrays::toTree($array, $parent = 'pid', $id = 0, $level = 0);
+
 ```

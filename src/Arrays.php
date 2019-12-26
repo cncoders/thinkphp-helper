@@ -145,4 +145,25 @@ class Arrays
         }
         return false;
     }
+
+    /**
+     * 数组的无限极分类
+     * @param $array
+     * @param string $parent
+     * @param int $id
+     * @param int $level
+     * @return array
+     */
+    public static function toTree($array, $parent = 'pid', $id = 0, $level = 0)
+    {
+        static $list =array();
+        foreach ($array as $k=>$v){
+            if ($v[$parent] == $id){
+                $v['level']=$level;
+                $v['son'] = self::toTree($array, $parent, $v['id'],$level+1);
+                $list[] = $v;
+            }
+        }
+        return $list;
+    }
 }
