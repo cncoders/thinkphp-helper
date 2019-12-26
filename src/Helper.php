@@ -8,7 +8,7 @@ class Helper
      * @param $price
      * @return string
      */
-    public static function formatPrice($price) :string
+    public static function formatPrice($price)
     {
         return sprintf("%.2f", $price);
     }
@@ -18,7 +18,7 @@ class Helper
      * @param $string
      * @return mixed
      */
-    public static function stringToArray($string) :array
+    public static function stringToArray($string)
     {
         preg_match_all("/./u", $string, $math);
         return $math[0];
@@ -29,7 +29,7 @@ class Helper
      * @param string $prefix
      * @return string
      */
-    public static function builderOrderSn($prefix = '') :string
+    public static function builderOrderSn($prefix = '')
     {
         $prefix = !empty($prefix) ? $prefix : '';
         return  $prefix . date('Ymd') .
@@ -47,7 +47,7 @@ class Helper
      * @return string
      * @throws \Exception
      */
-    public static function uuid( $strtoupper = false , $spilt = '-') :string
+    public static function uuid( $strtoupper = false , $spilt = '-')
     {
         $str = uniqid('',true);
         $arr = explode('.',$str);
@@ -74,7 +74,7 @@ class Helper
      * @param string $content
      * @return string
      */
-    public static function encodeLook($content = '') :string
+    public static function encodeLook($content = '')
     {
         return preg_replace_callback('/[\xf0-\xf7].{3}/', function($r) {
             return '@E' . base64_encode($r[0]);
@@ -86,7 +86,7 @@ class Helper
      * @param string $content
      * @return string
      */
-    public static function decodeLook($content = ''):string
+    public static function decodeLook($content = '')
     {
         return preg_replace_callback('/@E(.{6}==)/', function($r) {
             return base64_decode($r[1]);
@@ -98,7 +98,7 @@ class Helper
      * @param $str
      * @return string|null
      */
-    public static function firstCharter($str) :string
+    public static function firstCharter($str)
     {
         static $fchar;
         if (empty($str)) return '';

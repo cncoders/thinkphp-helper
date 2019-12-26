@@ -13,7 +13,7 @@ class Arrays
      * @param $array
      * @return bool
      */
-    public static function hasDoubleArray(array $array) :bool
+    public static function hasDoubleArray(array $array)
     {
         return count($array) == count($array, 1);
     }
@@ -47,7 +47,7 @@ class Arrays
      * @param $array
      * @return bool
      */
-    public static function inArray($key, $array) :bool
+    public static function inArray($key, $array)
     {
         $arrayFlip = array_flip($array);
         return isset($arrayFlip[$key]);
